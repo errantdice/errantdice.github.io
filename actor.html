@@ -22,7 +22,7 @@
             $("#popper").replaceWith(dom)
             dom = $($.parseHTML(data,true)).find("#bootstrap").get(0).outerHTML
             $("#popper").replaceWith(dom)
-        }, "html")
+        })
     </script>
     <script id="popper"></script>
     <script id="bootstrap"></script>
@@ -38,14 +38,28 @@
             $("#footer").replaceWith(data);
         });
     </script>
+    
+    <!-- Temp Script Function -->
+    <script>
+        $.get("actors/ehlain.json", function(data) {
+            debugger
+            var test = data
+            debugger
+            var name = data.name
+            debugger
+            $("#name").replaceWith(data.name)
+        })
+    </script>
 </head>
 <body>
     <!-- Header Section -->
     <div id="header"></div>
     
     <!-- Content Section -->
-    <div class="container-fluid"><h1>Hello World</h1></div>
+    <div class="container-fluid">
+        <h1 id="name"></h1>
     
+    </div>
     <!-- Footer Section -->
     <div id="footer"></div>
 </body>
