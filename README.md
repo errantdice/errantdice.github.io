@@ -14,3 +14,8 @@
     * http://brackets.io/
     * https://github.com/adobe/brackets/
     * Release 1.14 build 1.14.0-17740 (release 329d08ffc) 
+
+### Website Details
+* Bootstrap 4.3.1
+* Jquery 3.3.1
+* Popper 1.14.7
