@@ -4,7 +4,7 @@
     <!-- Meta Information -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <title id="title"></title>
     <!-- CDN Min JavaScript -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" 
             integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
@@ -13,7 +13,9 @@
     <script>
         $.get("common.html", function(data) {
             var html = $($.parseHTML(data,true))
-            var dom 
+            var dom
+            dom = $($.parseHTML(data,true)).find("#title").get(0).outerHTML
+            $("#title").replaceWith(dom);
             dom = $($.parseHTML(data,true)).find("#popper").get(0).outerHTML
             $("#popper").replaceWith(dom);
             dom = $($.parseHTML(data,true)).find("#bootstrap").get(0).outerHTML
