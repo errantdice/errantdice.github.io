@@ -33,7 +33,7 @@
             $("#header").replaceWith(data);
         });
     </script>
-        <script>
+    <script>
         $.get("footer.html", function(data) {
             $("#footer").replaceWith(data);
         });
@@ -41,13 +41,53 @@
     
     <!-- Temp Script Function -->
     <script>
-        $.get("actors/ehlain.json", function(data) {
+        (async () => {
             debugger
-            var test = data
-            debugger
-            var name = data.name
-            debugger
+            const response = await fetch('https://api.github.com/repos/errantdice/errantdice/contents/');
+            const data = await response.json();
+            let htmlString = '<ul>';
+            for (let file of data) {
+                htmlString += `<li><a href="${file.path}">${file.name}</a></li>`;
+            }
+            htmlString += '</ul>';
+            document.getElementsByTagName('body')[0].innerHTML = htmlString;
+        })
+    </script>
+    <!-- Temp Script Function -->
+    <script>
+        // url to json file containing actor data
+        var url
+        
+        // TODO Rename Function. Refactor into either common.js or actor.js
+        // Posibly Refactor to not rely on GET query
+        /**
+         * Locates the .json file associated with the GET query. 
+         */
+        function foo() {
+//            debugger
+            var query = window.location.search.substring(1).split("&")
+            var pairs = new Map()
+            for (var i=0; i<query.length; i++) {
+                var pair = query[i].split("=")
+                pairs.set(pair[0],pair[1])
+            }
+            var folder = "actors/"
+            var name = pairs.get("name")
+            if (name != null) {
+                name = folder.concat(name)
+                name = name.concat(".json")
+                url = name
+            }
+        }
+        foo()
+        
+        /**
+         * Fills in the actor.html page with the data from the .json file holding the actor's data
+         */
+        $.get(url, function(data) {
+//            debugger
             $("#name").replaceWith(data.name)
+            $("#myth").replaceWith(data.myth)
         })
     </script>
 </head>
@@ -57,8 +97,8 @@
     
     <!-- Content Section -->
     <div class="container-fluid">
-        <h1 id="name"></h1>
-    
+        <div id="name"></div>
+        <div id="myth"></div>
     </div>
     <!-- Footer Section -->
     <div id="footer"></div>
