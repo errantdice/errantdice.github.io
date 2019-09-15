@@ -1,0 +1,55 @@
+---
+permalink: /404.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head id="common">
+    <!-- Meta Information -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title id="title"></title>
+    
+    <!-- CDN Min JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" 
+            integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
+
+    <!-- Shared Javascript -->
+    <!-- Dependent on JQuery 3.4.1 -->
+    <script>
+        $.get("common.html", function(data) {
+            var html = $($.parseHTML(data,true))
+            var dom
+            dom = $($.parseHTML(data,true)).find("#title").get(0).outerHTML
+            $("#title").replaceWith(dom)
+            dom = $($.parseHTML(data,true)).find("#popper").get(0).outerHTML
+            $("#popper").replaceWith(dom)
+            dom = $($.parseHTML(data,true)).find("#bootstrap").get(0).outerHTML
+            $("#popper").replaceWith(dom)
+        }, "html")
+    </script>
+    <script id="popper"></script>
+    <script id="bootstrap"></script>
+
+    <!-- Header-Footer -->
+    <script>
+        $.get("header.html", function(data) {
+            $("#header").replaceWith(data);
+        });
+    </script>
+        <script>
+        $.get("footer.html", function(data) {
+            $("#footer").replaceWith(data);
+        });
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <div id="header"></div>
+    
+    <!-- Content Section -->
+    <div class="container-fluid"><h1>Opps 404</h1></div>
+    
+    <!-- Footer Section -->
+    <div id="footer"></div>
+</body>
+</html>
