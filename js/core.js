@@ -2,6 +2,10 @@
 
 function init() { // eslint-disable-line no-unused-vars
     'use strict'
+    
+    // Set the page title
+    document.getElementById("title").innerHTML = "Errant Dice"
+    
     var xhr = new XMLHttpRequest()
     xhr.open("GET", "/data/core.json")
     xhr.setRequestHeader("Content-Type", "application/json")
