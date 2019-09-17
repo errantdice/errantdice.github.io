@@ -1,0 +1,58 @@
+{
+  "js": {
+    "type": "text/javascript",
+    "crossorigin": "anonymous",
+    "src": {
+      "jquery": {
+        "id": "jquery-js",
+        "cdn": {
+          "url": "https://code.jquery.com/jquery-3.4.1.js",
+          "integrity": "sha384-mlceH9HlqLp7GMKHrj5Ara1+LvdTZVMx4S1U43/NxCvAkzIo8WJ0FE7duLel3wVo"
+        },
+        "min": {
+          "url": "https://code.jquery.com/jquery-3.4.1.min.js",
+          "integrity": "sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
+        }
+      },
+      "popper": {
+        "id": "popper-js",
+        "cdn": {
+          "url": "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.js",
+          "integrity": "sha384-+pJF094Ta2RnahQyTGMfUIP/QGRrcV9M7UybKYko0JCH3B5ukTC6V0kEUSWTWhrn"
+        },
+        "min": {
+          "url": "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js",
+          "integrity": "sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        }
+      },
+      "bootstrap": {
+        "id": "bootstrap-js",
+        "cdn": {
+          "url": "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.js",
+          "integrity": "sha384-rkSGcquOAzh5YMplX4tcXMuXXwmdF/9eRLkw/gNZG+1zYutPej7fxyVLiOgfoDgi"
+        },
+        "min": {
+          "url": "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js",
+          "integrity": "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        }
+      }
+    }
+  },
+  "css": {
+    "rel": "stylesheet",
+    "crossorigin": "anonymous",
+    "src": {
+      "bootstrap": {
+        "id": "bootstrap-css",
+        "cdn": {
+          "href": "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css",
+          "integrity": "sha384-t4IGnnWtvYimgcRMiXD2ZD04g28Is9vYsVaHo5LcWWJkoQGmMwGg+QS0mYlhbVv3"
+        },
+        "min": {
+          "href": "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css",
+          "integrity": "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        }
+      }
+    }
+  }
+}

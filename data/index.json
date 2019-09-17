@@ -1,0 +1,34 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "name": "dispater.json",
+          "path": ".\\actors\\dispater.json",
+          "type": "file"
+        },
+        {
+          "name": "ehlain.json",
+          "path": ".\\actors\\ehlain.json",
+          "type": "file"
+        }
+      ],
+      "name": "actors",
+      "path": ".\\actors",
+      "type": "folder"
+    },
+    {
+      "name": "index.json",
+      "path": ".\\index.json",
+      "type": "file"
+    },
+    {
+      "name": "index.py",
+      "path": ".\\index.py",
+      "type": "file"
+    }
+  ],
+  "name": ".",
+  "path": ".",
+  "type": "folder"
+}

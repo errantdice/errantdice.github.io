@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head id="common">
+<head>
     <!-- Meta Information -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title id="title"></title>
     
     <!-- CDN Min JavaScript -->
+<!--
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" 
             integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
+-->
+
+    <script src="js/common.js"></script>
 
     <!-- Shared Javascript -->
     <!-- Dependent on JQuery 3.4.1 -->
+    
+<!--
     <script>
         $.get("common.html", function(data) {
             var html = $($.parseHTML(data,true))
@@ -24,20 +30,24 @@
             $("#popper").replaceWith(dom)
         }, "html")
     </script>
+-->
+    <script id="jquery"></script>
     <script id="popper"></script>
     <script id="bootstrap"></script>
 
     <!-- Header-Footer -->
-    <script>
+<!--
+    <script defer>
         $.get("header.html", function(data) {
             $("#header").replaceWith(data);
         });
     </script>
-        <script>
+    <script defer>
         $.get("footer.html", function(data) {
             $("#footer").replaceWith(data);
         });
     </script>
+-->
 </head>
 <body>
     <!-- Header Section -->

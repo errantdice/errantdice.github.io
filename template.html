@@ -6,37 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title id="title"></title>
     
-    <!-- CDN Min JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" 
-            integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
-
-    <!-- Shared Javascript -->
-    <!-- Dependent on JQuery 3.4.1 -->
-    <script>
-        $.get("common.html", function(data) {
-            var html = $($.parseHTML(data,true))
-            var dom
-            dom = $($.parseHTML(data,true)).find("#title").get(0).outerHTML
-            $("#title").replaceWith(dom)
-            dom = $($.parseHTML(data,true)).find("#popper").get(0).outerHTML
-            $("#popper").replaceWith(dom)
-            dom = $($.parseHTML(data,true)).find("#bootstrap").get(0).outerHTML
-            $("#popper").replaceWith(dom)
-        }, "html")
-    </script>
-    <script id="popper"></script>
-    <script id="bootstrap"></script>
-
-    <!-- Header-Footer -->
-    <script>
-        $.get("header.html", function(data) {
-            $("#header").replaceWith(data);
-        });
-    </script>
-        <script>
-        $.get("footer.html", function(data) {
-            $("#footer").replaceWith(data);
-        });
+    <script id="common" type="text/javascript">
+//        function loadScript(){
+//            
+//        }
+        
+        function foo() {
+        var xhr = new XMLHttpRequest()
+        xhr.open("GET", "/data/common.json")
+        xhr.setRequestHeader("Content-Type", "application/json")
+        xhr.responseType = "json"
+        xhr.onload = function(results) {
+            var head = document.head
+            var json = this.response
+            
+            var link = document.createElement("link") 
+            link.id = json.css.src.bootstrap.id
+            link.rel = json.css.rel
+            link.crossOrigin = json.css.crossorigin
+            link.href = json.css.src.bootstrap.cdn.href
+            link.integrity = json.css.src.bootstrap.cdn.integrity
+            head.appendChild(link)
+            
+            var scr = document.createElement("script")
+            scr.id = json.js.src.jquery.id
+            scr.type = json.js.type
+            scr.crossOrigin = json.js.crossorigin
+            scr.src = json.js.src.jquery.cdn.url
+            scr.integrity = json.js.src.jquery.cdn.integrity
+            head.appendChild(scr)
+            
+            
+        }
+        xhr.send()
+        }
+        foo()
     </script>
 </head>
 <body>

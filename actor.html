@@ -41,16 +41,31 @@
     
     <!-- Temp Script Function -->
     <script>
-        (async () => {
+        var url = "/data/index.json"
+//        var folder
+        $.get(url, function(data) {
+            var folder
             debugger
-            const response = await fetch('https://api.github.com/repos/errantdice/errantdice/contents/');
-            const data = await response.json();
-            let htmlString = '<ul>';
-            for (let file of data) {
-                htmlString += `<li><a href="${file.path}">${file.name}</a></li>`;
+            for (var i=0; i<(data.children.length); i++) {
+                var child = data.children[i]
+                var name = child.name
+                var type = child.type
+                if (name == "actors") {
+                    debugger
+                    folder = data.children[i]
+                }
             }
-            htmlString += '</ul>';
-            document.getElementsByTagName('body')[0].innerHTML = htmlString;
+            var path
+            for (var i=0; i<folder.children.length; i++) {
+                debugger
+                path = "/data/" + folder.name + "/" + folder.children[i].name
+                $.getJSON(path, function(result) {
+                    html = "<button type=\"button\" class=\"btn\">"
+                    html = html + (result.name)
+                    html = html + "</button>"
+                    $("#index").after(html)
+                })
+            }
         })
     </script>
     <!-- Temp Script Function -->
@@ -71,7 +86,7 @@
                 var pair = query[i].split("=")
                 pairs.set(pair[0],pair[1])
             }
-            var folder = "actors/"
+            var folder = "/data/actors/"
             var name = pairs.get("name")
             if (name != null) {
                 name = folder.concat(name)
@@ -96,6 +111,9 @@
     <div id="header"></div>
     
     <!-- Content Section -->
+    <div class="container-fluid">
+        <div id="index"></div>
+    </div>
     <div class="container-fluid">
         <div id="name"></div>
         <div id="myth"></div>
