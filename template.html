@@ -1,46 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head id="common">
+<head>
     <!-- Meta Information -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title id="title"></title>
     
-    <script id="common" type="text/javascript">
-//        function loadScript(){
-//            
-//        }
-        
-        function foo() {
-        var xhr = new XMLHttpRequest()
-        xhr.open("GET", "/data/common.json")
-        xhr.setRequestHeader("Content-Type", "application/json")
-        xhr.responseType = "json"
-        xhr.onload = function(results) {
-            var head = document.head
-            var json = this.response
-            
-            var link = document.createElement("link") 
-            link.id = json.css.src.bootstrap.id
-            link.rel = json.css.rel
-            link.crossOrigin = json.css.crossorigin
-            link.href = json.css.src.bootstrap.cdn.href
-            link.integrity = json.css.src.bootstrap.cdn.integrity
-            head.appendChild(link)
-            
-            var scr = document.createElement("script")
-            scr.id = json.js.src.jquery.id
-            scr.type = json.js.type
-            scr.crossOrigin = json.js.crossorigin
-            scr.src = json.js.src.jquery.cdn.url
-            scr.integrity = json.js.src.jquery.cdn.integrity
-            head.appendChild(scr)
-            
-            
-        }
-        xhr.send()
-        }
-        foo()
+    <script type="text/javascript" src="/js/core.js"></script>
+    <script type="text/javascript" id="core">
+        init()
+    </script>
+    <!-- Header -->
+    <script>
+        defer(function(){
+            requires(function(){
+                header()
+            }) 
+        })
+    </script>
+    <!-- Footer -->
+    <script>
+        defer(function(){
+            requires(function(){
+                footer()
+            }) 
+        })
     </script>
 </head>
 <body>
