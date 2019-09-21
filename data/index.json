@@ -1,5 +1,5 @@
 {
-  "children": [
+  "children": [    
     {
       "children": [
         {
@@ -11,10 +11,32 @@
           "name": "ehlain.json",
           "path": ".\\actors\\ehlain.json",
           "type": "file"
+        },
+        {
+          "name": "faelan.json",
+          "path": ".\\actors\\faelan.json",
+          "type": "file"
         }
       ],
       "name": "actors",
       "path": ".\\actors",
+      "type": "folder"
+    },
+    {
+      "name": "core.json",
+      "path": ".\\core.json",
+      "type": "file"
+    },
+    {
+      "children": [
+        {
+          "name": "TheRomanceOfEhlain.json",
+          "path": ".\\events\\TheRomanceOfEhlain.json",
+          "type": "file"
+        }
+      ],
+      "name": "events",
+      "path": ".\\events",
       "type": "folder"
     },
     {

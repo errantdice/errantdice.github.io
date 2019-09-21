@@ -10,6 +10,7 @@
     
     <!-- Core Scripts -->
     <script id="core" type="text/javascript" src="/js/core.js"></script>
+    <script id="index" type="text/javascript" src="/js/index.js"></script>
     
     <!-- Header -->
     <script type="text/javascript">
@@ -20,17 +21,35 @@
         })
     </script>
     <!-- Footer -->
-    <script type="text/javascript">
+    <script>
         defer(function(){
             requires(function(){
                 footer()
             }) 
         })
     </script>
-</head>
+    
+    <!-- Subheader -->
+    <script type="text/javascript">
+        defer(function(){
+            requires(function(){
+                $.get("/setting/subheader.html", function(data) { 
+                    $("#subheader").replaceWith(data); 
+                })
+            })
+        })
+    </script>
+    
+    <!-- TODO Refactor Temp Scripts -->
+    <script type="text/javascript">
+        
+    </script>
 <body>
     <!-- Header Section -->
     <div id="header"></div>
+    
+    <!-- Subheader Section -->
+    <div id="subheader"></div>
     
     <!-- Content Section -->
     <div class="container-fluid"><h1>Hello World</h1></div>

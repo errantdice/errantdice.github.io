@@ -9,12 +9,10 @@
     <title id="title"></title>
     
     <!-- Core Scripts -->
-    <script type="text/javascript" src="/js/core.js"></script>
-    <script type="text/javascript" id="core">
-        init()
-    </script>
+    <script id="core" type="text/javascript" src="/js/core.js"></script>
+    
     <!-- Header -->
-    <script>
+    <script type="text/javascript">
         defer(function(){
             requires(function(){
                 header()
@@ -22,14 +20,13 @@
         })
     </script>
     <!-- Footer -->
-    <script>
+    <script type="text/javascript">
         defer(function(){
             requires(function(){
                 footer()
             }) 
         })
     </script>
-</head>
 <body>
     <!-- Header Section -->
     <div id="header"></div>

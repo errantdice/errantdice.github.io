@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Static Metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Dynamic Metadata -->
+    <title id="title"></title>
+    
+    <!-- Core Scripts -->
+    <script id="core" type="text/javascript" src="/js/core.js"></script>
+    
+    <!-- Header -->
+    <script type="text/javascript">
+        defer(function(){
+            requires(function(){
+                header()
+            }) 
+        })
+    </script>
+    <!-- Footer -->
+    <script type="text/javascript">
+        defer(function(){
+            requires(function(){
+                footer()
+            }) 
+        })
+    </script>
+    
+    <!-- Subheader -->
+    <script type="text/javascript">
+        defer(function(){
+            requires(function(){
+                $.get("/setting/subheader.html", function(data) {
+                    $("#subheader").replaceWith(data);
+                })
+            })
+        })
+    </script>
+    
+    <!-- Temp Script Function -->
+    <script type="text/javascript">
+        defer(function(){
+            requires(function(){
+                var url = "/data/index.json"
+//                var folder
+                $.get(url, function(data) {
+                    var folder
+                    for (var i=0; i<(data.children.length); i++) {
+                        var child = data.children[i]
+                        var name = child.name
+                        var type = child.type
+                        if (name == "actors") {
+                            folder = data.children[i]
+                        }
+                    }
+                    var path
+                    for (var i=0; i<folder.children.length; i++) {
+                        path = "/data/" + folder.name + "/" + folder.children[i].name
+                        $.getJSON(path, function(result) {
+                            html = "<button type=\"button\" class=\"btn\">"
+                            html = html + (result.name)
+                            html = html + "</button>"
+                            $("#index").after(html)
+                        })
+                    }
+                })
+            })
+        })
+        
+    </script>
+    <!-- Temp Script Function -->
+    <script type="text/javascript">
+        // url to json file containing actor data
+        var url
+        
+        // TODO Rename Function. Refactor into either common.js or actor.js
+        // Posibly Refactor to not rely on GET query
+        /**
+         * Locates the .json file associated with the GET query. 
+         */
+        function foo() {
+            var query = window.location.search.substring(1).split("&")
+            var pairs = new Map()
+            for (var i=0; i<query.length; i++) {
+                var pair = query[i].split("=")
+                pairs.set(pair[0],pair[1])
+            }
+            var folder = "/data/actors/"
+            var name = pairs.get("name")
+            if (name != null) {
+                name = folder.concat(name)
+                name = name.concat(".json")
+                url = name
+            }
+        }
+        foo()
+        
+        /**
+         * Fills in the actor.html page with the data from the .json file holding the actor's data
+         */
+        defer(function(){
+            requires(function(){
+                $.get(url, function(data) {
+                    $("#name").replaceWith(data.name)
+                    $("#myth").replaceWith(data.myth)
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <div id="header"></div>
+    
+    <!-- Subheader Section -->
+    <div id="subheader"></div>
+    
+    <!-- Content Section -->
+    <div class="container-fluid">
+        <div id="index"></div>
+    </div>
+    <div class="container-fluid">
+        <div id="name"></div>
+        <div id="myth"></div>
+    </div>
+    <!-- Footer Section -->
+    <div id="footer"></div>
+</body>
+</html>

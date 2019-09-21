@@ -1,5 +1,12 @@
 /* eslint-env browser */
 
+//var json
+
+(function (){
+    init()
+})()
+
+// TODO Major Refactor
 function init() { // eslint-disable-line no-unused-vars
     'use strict'
     
@@ -85,13 +92,13 @@ function requires(method) { // eslint-disable-line no-unused-vars
 }
 
 function header() { // eslint-disable-line no-unused-vars
-    $.get("header.html", function(data) { // eslint-disable-line no-undef
+    $.get("/header.html", function(data) { // eslint-disable-line no-undef
         $("#header").replaceWith(data); // eslint-disable-line no-undef
     })
 }
 
 function footer() { // eslint-disable-line no-unused-vars
-    $.get("footer.html", function(data) { // eslint-disable-line no-undef
+    $.get("/footer.html", function(data) { // eslint-disable-line no-undef
         $("#footer").replaceWith(data); // eslint-disable-line no-undef
     })
 }
