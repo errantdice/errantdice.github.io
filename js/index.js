@@ -1,6 +1,6 @@
 /* eslint-env browser */
-(function index(){
-    
+(function index() {
+    'use strict';
     var index = "/data/index.json"
     
     var iQuery = {}
